@@ -52,7 +52,14 @@
         <activity android:name=".DownloadActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.download" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ResetActivity">
+            <intent-filter>
+                <action android:name="ru.sccraft.scask.reset"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>
