@@ -10,6 +10,6 @@
         android:id="@+id/adapter_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="12345"
+        tools:text="Пушкин родился раньше Тургенева?"
         android:textSize="18sp" />
 </LinearLayout>

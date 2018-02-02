@@ -50,6 +50,7 @@ public class QuestionAdapter extends BaseAdapter {
         Question вопрос = получить_вопрос(i);
 
         TextView вывод_вопроса = вью.findViewById(R.id.adapter_item);
+        вывод_вопроса.setText(вопрос.вопрос);
         if (вопрос.решено()) {
             if (вопрос.проверить_ответ()) {
                 вывод_вопроса.setTextColor(вью.getResources().getColor(R.color.colorYes));

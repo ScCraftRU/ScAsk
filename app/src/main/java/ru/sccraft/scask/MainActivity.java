@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < q.length; i++) {
                 s[i] = q[i].вопрос;
             }
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, s);
-            //QuestionAdapter adapter = new QuestionAdapter(this, q);
+            //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, s);
+            QuestionAdapter adapter = new QuestionAdapter(this, q);
             lw.setAdapter(adapter);
             lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
