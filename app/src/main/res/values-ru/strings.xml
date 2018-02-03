@@ -50,4 +50,7 @@
     <string name="downloadActivity_downloading">Загрузка...</string>
     <string name="settings_syncNow">Синхронизировать сейчас</string>
     <string name="settings_sync_server">Сервер</string>
+    <string name="pleaseWait">Пожалуйста, подождите...</string>
+    <string name="removeAllDialogTitle">Удалить все вопросы?</string>
+    <string name="removeAllDialogContent">Это действие необратимо!</string>
 </resources>
