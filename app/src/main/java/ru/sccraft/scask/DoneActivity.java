@@ -2,6 +2,7 @@ package ru.sccraft.scask;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,11 @@ public class DoneActivity extends AppCompatActivity {
     private String[] file;
     private Fe fe;
     private Question[] вопросы;
+    int верно;
+    int неверно;
+    int пропущено;
+
+    TextView базовая_статистика;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +23,7 @@ public class DoneActivity extends AppCompatActivity {
         file = fileList();
         fe = new Fe(this);
         setContentView(R.layout.activity_done);
+        базовая_статистика = findViewById(R.id.done_baseStat);
         получить_вопросы();
         подситать_ответы();
     }
@@ -39,5 +46,20 @@ public class DoneActivity extends AppCompatActivity {
     }
 
     private void подситать_ответы() {
+        верно = 0;
+        неверно = 0;
+        пропущено = 0;
+
+        for (Question вопрос : вопросы) {
+            if (!вопрос.решено()) {
+                пропущено++;
+                continue;
+            }
+            if (вопрос.проверить_ответ()) {
+                верно++;
+            } else {
+                неверно++;
+            }
+        }
     }
 }
