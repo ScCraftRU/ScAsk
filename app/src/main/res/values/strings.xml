@@ -107,4 +107,7 @@
     <string name="removeAllDialogContent">This action is irreversible!</string>
     <string name="settings_removeAll">Remove all questions</string>
     <string name="action_done">End</string>
+    <string name="done_right">"Correct: "</string>
+    <string name="done_incorrect">"Incorrect: "</string>
+    <string name="done_escape">Escape:</string>
 </resources>

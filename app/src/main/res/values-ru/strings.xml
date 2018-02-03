@@ -55,4 +55,7 @@
     <string name="removeAllDialogContent">Это действие необратимо!</string>
     <string name="settings_removeAll">Удалить все вопросы</string>
     <string name="action_done">Завершить</string>
+    <string name="done_right">"Верно: "</string>
+    <string name="done_incorrect">"Неверно: "</string>
+    <string name="done_escape">"Пропущено: "</string>
 </resources>

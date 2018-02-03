@@ -26,6 +26,7 @@ public class DoneActivity extends AppCompatActivity {
         базовая_статистика = findViewById(R.id.done_baseStat);
         получить_вопросы();
         подситать_ответы();
+        вывести_статистику();
     }
 
     private void получить_вопросы() {
@@ -61,5 +62,9 @@ public class DoneActivity extends AppCompatActivity {
                 неверно++;
             }
         }
+    }
+
+    private void вывести_статистику() {
+        базовая_статистика.setText(getString(R.string.done_right) + верно + "\n" + getString(R.string.done_incorrect) + неверно + "\n" + getString(R.string.done_escape) + пропущено);
     }
 }
