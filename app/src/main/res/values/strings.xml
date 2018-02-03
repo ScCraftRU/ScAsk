@@ -110,4 +110,5 @@
     <string name="done_right">"Correct: "</string>
     <string name="done_incorrect">"Incorrect: "</string>
     <string name="done_escape">Escape:</string>
+    <string name="done_title">Statistic</string>
 </resources>

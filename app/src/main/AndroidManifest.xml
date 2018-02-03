@@ -67,7 +67,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".DoneActivity"/>
+        <activity android:name=".DoneActivity"
+            android:label="@string/done_title"/>
     </application>
 
 </manifest>

@@ -58,4 +58,5 @@
     <string name="done_right">"Верно: "</string>
     <string name="done_incorrect">"Неверно: "</string>
     <string name="done_escape">"Пропущено: "</string>
+    <string name="done_title">Статистика</string>
 </resources>

@@ -2,6 +2,7 @@ package ru.sccraft.scask;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -11,11 +12,12 @@ public class DoneActivity extends AppCompatActivity {
     private String[] file;
     private Fe fe;
     private Question[] вопросы;
-    int верно;
-    int неверно;
-    int пропущено;
+    private int верно;
+    private int неверно;
+    private int пропущено;
 
     TextView базовая_статистика;
+    ListView подробная_статистика;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class DoneActivity extends AppCompatActivity {
         fe = new Fe(this);
         setContentView(R.layout.activity_done);
         базовая_статистика = findViewById(R.id.done_baseStat);
+        подробная_статистика = findViewById(R.id.done_lw);
         получить_вопросы();
         подситать_ответы();
         вывести_статистику();
@@ -66,5 +69,7 @@ public class DoneActivity extends AppCompatActivity {
 
     private void вывести_статистику() {
         базовая_статистика.setText(getString(R.string.done_right) + верно + "\n" + getString(R.string.done_incorrect) + неверно + "\n" + getString(R.string.done_escape) + пропущено);
+        QuestionAdapter адаптер = new QuestionAdapter(this, вопросы);
+        подробная_статистика.setAdapter(адаптер);
     }
 }
