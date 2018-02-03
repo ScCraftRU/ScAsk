@@ -128,6 +128,13 @@ public class MainActivity extends AppCompatActivity {
         поток.execute();
     }
 
+    private void завершить() {
+        Intent intent = new Intent(MainActivity.this, DoneActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -151,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_export:
                 экспортировать_файлы();
                 return true;
+            case R.id.action_done:
+                завершить();
         }
 
         return super.onOptionsItemSelected(item);
