@@ -53,4 +53,5 @@
     <string name="pleaseWait">Пожалуйста, подождите...</string>
     <string name="removeAllDialogTitle">Удалить все вопросы?</string>
     <string name="removeAllDialogContent">Это действие необратимо!</string>
+    <string name="settings_removeAll">Удалить все вопросы</string>
 </resources>

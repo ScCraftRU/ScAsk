@@ -4,5 +4,11 @@
         <Preference android:title="@string/settings_resetAnswers">
             <intent android:action="ru.sccraft.scask.reset"/>
         </Preference>
+
+        <Preference
+            android:icon="@android:drawable/ic_menu_delete"
+            android:title="@string/settings_removeAll">
+            <intent android:action="ru.sccraft.scask.removeall" />
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

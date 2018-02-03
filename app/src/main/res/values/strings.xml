@@ -105,4 +105,5 @@
     <string name="pleaseWait">Olease, wait...</string>
     <string name="removeAllDialogTitle">Remove all Questions?</string>
     <string name="removeAllDialogContent">This action is irreversible!</string>
+    <string name="settings_removeAll">Remove all questions</string>
 </resources>

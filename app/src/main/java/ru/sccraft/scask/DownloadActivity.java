@@ -1,7 +1,9 @@
 package ru.sccraft.scask;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -33,6 +35,7 @@ public class DownloadActivity extends AppCompatActivity {
     private class Get extends AsyncTask<Void, Void, Void> {
 
         DownloadActivity a;
+        SharedPreferences настройки;
 
         Get(DownloadActivity activity) {
             a = activity;
@@ -40,7 +43,9 @@ public class DownloadActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            String[] JSON = NetGet.getMultiLine("http://sccraft.ru/android-app/scask/questions.scask");
+            настройки = PreferenceManager.getDefaultSharedPreferences(a);
+            String server = настройки.getString("settings_sync_server", "http://sccraft.ru/android-app/scask/questions");
+            String[] JSON = NetGet.getMultiLine(server + ".scask");
             for (String json : JSON) {
                 Question вопрос = Question.fromJSON(json);
                 a.fe.saveFile(вопрос.вопрос + ".json", вопрос.toJSON());
