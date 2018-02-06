@@ -102,7 +102,7 @@
     <string name="settings_syncNow">Sync now</string>
     <string name="sync_server" translatable="false">http://sccraft.ru/android-app/scask/questions</string>
     <string name="settings_sync_server">Server</string>
-    <string name="pleaseWait">Olease, wait...</string>
+    <string name="pleaseWait">Please, wait...</string>
     <string name="removeAllDialogTitle">Remove all Questions?</string>
     <string name="removeAllDialogContent">This action is irreversible!</string>
     <string name="settings_removeAll">Remove all questions</string>
