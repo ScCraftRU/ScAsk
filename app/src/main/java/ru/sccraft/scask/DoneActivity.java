@@ -2,8 +2,11 @@ package ru.sccraft.scask;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -71,5 +74,15 @@ public class DoneActivity extends AppCompatActivity {
         базовая_статистика.setText(getString(R.string.done_right) + верно + "\n" + getString(R.string.done_incorrect) + неверно + "\n" + getString(R.string.done_escape) + пропущено);
         QuestionAdapter адаптер = new QuestionAdapter(this, вопросы);
         подробная_статистика.setAdapter(адаптер);
+        подробная_статистика.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String ответ = вопросы[i].получить_ответ().toString();
+                ответ = ответ.replace("true", getString(R.string.yes));
+                ответ = ответ.replace("false", getString(R.string.no));
+                Toast.makeText(getApplicationContext(), ответ, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 }

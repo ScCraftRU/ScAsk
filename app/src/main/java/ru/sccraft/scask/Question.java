@@ -97,6 +97,18 @@ public class Question {
         return отвечен;
     }
 
+    public Object получить_ответ() {
+        switch (тип) {
+            case 0:
+                return логический_ответ;
+            case 1:
+                return числовой_ответ;
+            case 2:
+                return строковый_ответ;
+        }
+        return null;
+    }
+
     public void сбросить_ответ() {
         отвечен = false;
     }
