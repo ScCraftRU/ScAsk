@@ -1,5 +1,6 @@
 package ru.sccraft.scask;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -79,7 +80,8 @@ public class QuestionActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.action_settings:
+            case R.id.action_export:
+                экспортировать();
                 return true;
         }
 
@@ -116,5 +118,15 @@ public class QuestionActivity extends AppCompatActivity {
         }
         fe.saveFile(вопрос.вопрос + ".json", вопрос.toJSON());
         finish();
+    }
+
+    private void экспортировать() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, вопрос.toJSON());
+        sendIntent.setType("text/plain");
+        if (sendIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(sendIntent);
+        }
     }
 }

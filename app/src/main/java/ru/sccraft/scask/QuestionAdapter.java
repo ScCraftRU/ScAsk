@@ -54,7 +54,7 @@ public class QuestionAdapter extends BaseAdapter {
         Question вопрос = получить_вопрос(i);
 
         TextView вывод_вопроса = вью.findViewById(R.id.adapter_item);
-        boolean показывать_номера_вопросов = настройки.getBoolean("settings_showQuestionsNumber", false);
+        boolean показывать_номера_вопросов = настройки.getBoolean("settings_showQuestionsNumber", true);
         if (показывать_номера_вопросов) {
             вывод_вопроса.setText((i + 1) + ") " + вопрос.вопрос);
         } else {
