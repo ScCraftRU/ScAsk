@@ -1,6 +1,8 @@
 package ru.sccraft.scask;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +20,13 @@ public class QuestionAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater lInflater;
     private Question[] вопросы;
+    private SharedPreferences настройки;
 
     QuestionAdapter(Context context, Question[] вопросы) {
         this.context = context;
         this.вопросы = вопросы;
         lInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        настройки = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     @Override
@@ -50,13 +54,20 @@ public class QuestionAdapter extends BaseAdapter {
         Question вопрос = получить_вопрос(i);
 
         TextView вывод_вопроса = вью.findViewById(R.id.adapter_item);
-        вывод_вопроса.setText(вопрос.вопрос);
+        boolean показывать_номера_вопросов = настройки.getBoolean("settings_showQuestionsNumber", false);
+        if (показывать_номера_вопросов) {
+            вывод_вопроса.setText((i + 1) + ") " + вопрос.вопрос);
+        } else {
+            вывод_вопроса.setText(вопрос.вопрос);
+        }
         if (вопрос.решено()) {
             if (вопрос.проверить_ответ()) {
                 вывод_вопроса.setTextColor(вью.getResources().getColor(R.color.colorYes));
             } else {
                 вывод_вопроса.setTextColor(вью.getResources().getColor(R.color.colorAccent));
             }
+        } else {
+            вывод_вопроса.setTextColor(вью.getResources().getColor(android.R.color.black));
         }
         return вью;
     }

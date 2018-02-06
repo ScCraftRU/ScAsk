@@ -59,4 +59,6 @@
     <string name="done_incorrect">"Неверно: "</string>
     <string name="done_escape">"Пропущено: "</string>
     <string name="done_title">Статистика</string>
+    <string name="settings_appearance">Внешний вид</string>
+    <string name="settings_showQuestionsNumber">Показывать номера вопросов</string>
 </resources>

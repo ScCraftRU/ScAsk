@@ -11,4 +11,10 @@
             <intent android:action="ru.sccraft.scask.removeall" />
         </Preference>
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_appearance">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="settings_showQuestionsNumber"
+            android:title="@string/settings_showQuestionsNumber" />
+    </PreferenceCategory>
 </PreferenceScreen>

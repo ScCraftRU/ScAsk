@@ -111,4 +111,6 @@
     <string name="done_incorrect">"Incorrect: "</string>
     <string name="done_escape">Escape:</string>
     <string name="done_title">Statistic</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_showQuestionsNumber">Show question numbers</string>
 </resources>
