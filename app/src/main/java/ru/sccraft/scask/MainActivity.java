@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             protected Intent doInBackground(Void... params) {
                 Log.i(LOG_TAG, "запущен экспорт файлов");
                 Fe fe = new Fe(MainActivity.this);
-                String tittle = "This data ONLY for ScAsk server!\nMore information on http://sccraft.ru/index.php/guide/10-scspeak/2-scspeak-create-server\n";
+                String tittle = "This data ONLY for ScAsk server!\nMore information on http://sccraft.ru/index.php/guide/12-scask/6-howtocreateserver\n";
                 String разделитель = "=================================================================\n";
                 String data = tittle + разделитель;
                 for (String aFile : file) {
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, data);
                 sendIntent.setType("text/plain");
-                Log.i(LOG_TAG, "Экспорт слов завершён! Пользователю необходимо выбрать приложение, в которое будет проведён экспорт.");
+                Log.i(LOG_TAG, "Экспорт файлов завершён! Пользователю необходимо выбрать приложение, в которое будет проведён экспорт.");
                 return sendIntent;
             }
 
