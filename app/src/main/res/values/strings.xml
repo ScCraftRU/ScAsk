@@ -114,4 +114,5 @@
     <string name="settings_appearance">Appearance</string>
     <string name="settings_showQuestionsNumber">Show question numbers</string>
     <string name="action_export">Export question</string>
+    <string name="action_share">Share</string>
 </resources>

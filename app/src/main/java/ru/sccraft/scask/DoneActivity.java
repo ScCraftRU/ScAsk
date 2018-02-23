@@ -1,7 +1,11 @@
 package ru.sccraft.scask;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -84,5 +88,57 @@ public class DoneActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void отправить_статистику() {
+        class Поток extends AsyncTask<Void, Void, Intent> {
+
+            @Override
+            protected Intent doInBackground(Void... params) {
+                Fe fe = new Fe(DoneActivity.this);
+                String tittle = "User statistics\n";
+                String разделитель = "=================================================================\n";
+                String data = tittle + разделитель;
+                for (Question вопрос : вопросы) {
+                    data += вопрос.вопрос + "\n" + вопрос.получить_ответ() + "\n" + разделитель;
+                }
+                data = data + "END OF USER DATA";
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, data);
+                sendIntent.setType("text/plain");
+                return sendIntent;
+            }
+
+            @Override
+            protected void onPostExecute(Intent intent) {
+                super.onPostExecute(intent);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        }
+        Поток поток = new Поток();
+        поток.execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_done, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_share:
+                отправить_статистику();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

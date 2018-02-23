@@ -62,4 +62,5 @@
     <string name="settings_appearance">Внешний вид</string>
     <string name="settings_showQuestionsNumber">Показывать номера вопросов</string>
     <string name="action_export">Экспортировать вопрос</string>
+    <string name="action_share">Поделиться</string>
 </resources>
