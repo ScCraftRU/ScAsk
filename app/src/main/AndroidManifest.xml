@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -52,23 +54,28 @@
         <activity android:name=".DownloadActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.download" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".ResetActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.reset" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".RemoveAllActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.removeall" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".DoneActivity"
-            android:label="@string/done_title"/>
+        <activity
+            android:name=".DoneActivity"
+            android:label="@string/done_title" />
+        <activity android:name=".DisableADsActivity"></activity>
     </application>
 
 </manifest>
