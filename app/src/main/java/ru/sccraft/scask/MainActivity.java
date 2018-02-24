@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     ListView lw;
     String[] file;
     private Fe fe;
-    private int решено;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +79,17 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            lw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    deleteFile(q[position].вопрос + ".json");
+                    file = fileList();
+                    обновить_список_вопросов();
+                    return true;
+                }
+            });
         }
-        решено = 0;
+        int решено = 0;
         for (Question вопрос : q) {
             if (вопрос.проверить_ответ()) {
                 решено++;

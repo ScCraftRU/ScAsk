@@ -100,7 +100,7 @@
     <string name="downloadActivity_title">Please, wait</string>
     <string name="downloadActivity_downloading">Downloading...</string>
     <string name="settings_syncNow">Sync now</string>
-    <string name="sync_server" translatable="false">http://sccraft.ru/android-app/scask/questions</string>
+    <string name="sync_server">http://sccraft.ru/android-app/scask/questions_en</string>
     <string name="settings_sync_server">Server</string>
     <string name="pleaseWait">Please, wait...</string>
     <string name="removeAllDialogTitle">Remove all Questions?</string>

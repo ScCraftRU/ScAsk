@@ -63,4 +63,5 @@
     <string name="settings_showQuestionsNumber">Показывать номера вопросов</string>
     <string name="action_export">Экспортировать вопрос</string>
     <string name="action_share">Поделиться</string>
+    <string name="sync_server">http://sccraft.ru/android-app/scask/questions</string>
 </resources>
