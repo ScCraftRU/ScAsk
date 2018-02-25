@@ -68,14 +68,21 @@
         <activity android:name=".RemoveAllActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.removeall" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".DoneActivity"
             android:label="@string/done_title" />
-        <activity android:name=".DisableADsActivity"></activity>
+        <activity android:name=".DisableADsActivity">
+            <intent-filter>
+                <action android:name="ru.sccraft.scask.disableads" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.sccraft.scask.SettingsActivity" />
+        </activity>
     </application>
 
 </manifest>

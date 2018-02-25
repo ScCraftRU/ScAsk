@@ -60,8 +60,13 @@ public class QuestionActivity extends AppCompatActivity {
 
         // Load an ad into the AdMob banner view.
         AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().setRequestAgent("android_studio:ad_template").build();
-        adView.loadAd(adRequest);
+        if (!fe.getFile("scask-ads").contains("1")) {
+            adView.setVisibility(View.VISIBLE);
+            AdRequest adRequest = new AdRequest.Builder().setRequestAgent("android_studio:ad_template").build();
+            adView.loadAd(adRequest);
+        } else {
+            adView.setVisibility(View.GONE);
+        }
     }
 
 

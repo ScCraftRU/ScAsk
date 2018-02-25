@@ -17,4 +17,10 @@
             android:key="settings_showQuestionsNumber"
             android:title="@string/settings_showQuestionsNumber" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/ads">
+        <Preference
+            android:title="@string/disableADs">
+            <intent android:action="ru.sccraft.scask.disableads"/>
+        </Preference>
+    </PreferenceCategory>
 </PreferenceScreen>
