@@ -99,8 +99,16 @@ public class DoneActivity extends AppCompatActivity {
                 String tittle = "User statistics\n";
                 String разделитель = "=================================================================\n";
                 String data = tittle + разделитель;
+                float процент_решения = (верно / вопросы.length) * 100;
+                data += "DONE: " + процент_решения + "%" + "\n" + разделитель;
+                String решено = "";
                 for (Question вопрос : вопросы) {
-                    data += вопрос.вопрос + "\n" + вопрос.получить_ответ() + "\n" + разделитель;
+                    if (вопрос.проверить_ответ()) {
+                        решено = getString(R.string.yes);
+                    } else {
+                        решено = getString(R.string.no);
+                    }
+                    data += вопрос.вопрос + "\n" + getString(R.string.addQuestion_answer) + вопрос.получить_ответ() + "\n" + getString(R.string.done_right) + решено + "\n" + разделитель;
                 }
                 data = data + "END OF USER DATA";
 
