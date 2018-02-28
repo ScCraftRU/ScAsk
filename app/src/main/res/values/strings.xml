@@ -123,4 +123,5 @@
     <string name="disableADs">Disable ADs</string>
     <string name="notBuyed">This product is not purchased</string>
     <string name="ads">ADs</string>
+    <string name="error">Error</string>
 </resources>

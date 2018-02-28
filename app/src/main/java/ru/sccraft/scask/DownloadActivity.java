@@ -6,6 +6,9 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.google.gson.JsonSyntaxException;
 
 public class DownloadActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class DownloadActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    private class Get extends AsyncTask<Void, Void, Void> {
+    private class Get extends AsyncTask<Void, Void, Boolean> {
 
         DownloadActivity a;
         SharedPreferences настройки;
@@ -42,15 +45,21 @@ public class DownloadActivity extends AppCompatActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected Boolean doInBackground(Void... voids) {
             настройки = PreferenceManager.getDefaultSharedPreferences(a);
             String server = настройки.getString("settings_sync_server", "http://sccraft.ru/android-app/scask/questions");
             String[] JSON = NetGet.getMultiLine(server + ".scask");
-            for (String json : JSON) {
-                Question вопрос = Question.fromJSON(json);
-                a.fe.saveFile(вопрос.вопрос + ".json", вопрос.toJSON());
+            if (JSON.length == 0) return false;
+            try {
+                for (String json : JSON) {
+                    Question вопрос = Question.fromJSON(json);
+                    a.fe.saveFile(вопрос.вопрос + ".json", вопрос.toJSON());
+                }
+            } catch (JsonSyntaxException e) {
+                e.printStackTrace();
+                return false;
             }
-            return null;
+            return true;
         }
 
         void link(DownloadActivity a) {
@@ -58,8 +67,13 @@ public class DownloadActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if (aBoolean) {
+                Toast.makeText(getApplicationContext(), R.string.done, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.error, Toast.LENGTH_SHORT).show();
+            }
             a.finish();
         }
     }

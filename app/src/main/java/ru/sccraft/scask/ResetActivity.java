@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class ResetActivity extends AppCompatActivity {
 
@@ -49,6 +50,7 @@ public class ResetActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            Toast.makeText(getApplicationContext(), R.string.done, Toast.LENGTH_SHORT).show();
             a.finish();
         }
 

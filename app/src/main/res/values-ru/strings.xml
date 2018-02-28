@@ -72,4 +72,5 @@
     <string name="disableADs">Отключить рекламу</string>
     <string name="notBuyed">Этот продукт не приобретён!</string>
     <string name="ads">Реклама</string>
+    <string name="error">Ошибка</string>
 </resources>
