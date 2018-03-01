@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < q.length; i++) {
                 s[i] = q[i].вопрос;
             }
-            //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, s);
             QuestionAdapter adapter = new QuestionAdapter(this, q);
             lw.setAdapter(adapter);
             lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -136,17 +135,17 @@ public class MainActivity extends AppCompatActivity {
                 Fe fe = new Fe(MainActivity.this);
                 String tittle = "This data ONLY for ScAsk server!\nMore information on http://sccraft.ru/index.php/guide/12-scask/6-howtocreateserver\n";
                 String разделитель = "=================================================================\n";
-                String data = tittle + разделитель;
+                StringBuilder data = new StringBuilder(tittle + разделитель);
                 for (String aFile : file) {
                     if (!(aFile.equals("instant-run"))) {
-                        data = data + aFile + "\n" + fe.getFile(aFile) + "\n" + разделитель;
+                        data.append(aFile).append("\n").append(fe.getFile(aFile)).append("\n").append(разделитель);
                     }
                 }
-                data = data + "END OF SERVER DATA";
+                data.append("END OF SERVER DATA");
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, data);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, data.toString());
                 sendIntent.setType("text/plain");
                 Log.i(LOG_TAG, "Экспорт файлов завершён! Пользователю необходимо выбрать приложение, в которое будет проведён экспорт.");
                 return sendIntent;
