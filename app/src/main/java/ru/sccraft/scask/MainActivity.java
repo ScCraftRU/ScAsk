@@ -1,8 +1,12 @@
 package ru.sccraft.scask;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ListView lw;
     String[] file;
     private Fe fe;
+    private boolean показывать_диалог = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (!имеются_файлы_JSON) {
             //Нет вопросов
+            if (показывать_диалог) предложить_скачать_вопросы();
         } else {
             String[] s = new String[q.length];
             for (int i = 0; i < q.length; i++) {
@@ -98,7 +104,30 @@ public class MainActivity extends AppCompatActivity {
         setTitle(getString(R.string.mainActivity_decided) + " " + решено + " " + getString(R.string.mainActivity_decided_of) + " " + q.length);
     }
 
+    private void предложить_скачать_вопросы() {
+        AlertDialog.Builder диалог = new AlertDialog.Builder(this);
+        диалог.setTitle(R.string.noQuestions)
+                .setMessage(R.string.mainActivity_dialogMessage)
+                .setCancelable(true)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        показывать_диалог = false;
+                        Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        показывать_диалог = false;
+                    }
+                })
+                .show();
+    }
+
     private void экспортировать_файлы() {
+        @SuppressLint("StaticFieldLeak")
         class Поток extends AsyncTask<Void, Void, Intent> {
 
             @Override
@@ -170,5 +199,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putBoolean("showDialog", показывать_диалог);
     }
 }

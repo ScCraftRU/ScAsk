@@ -124,4 +124,6 @@
     <string name="notBuyed">This product is not purchased</string>
     <string name="ads">ADs</string>
     <string name="error">Error</string>
+    <string name="noQuestions">No saved questions!</string>
+    <string name="mainActivity_dialogMessage">Do you want to download a standard set of questions?</string>
 </resources>

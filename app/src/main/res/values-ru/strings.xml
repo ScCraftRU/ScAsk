@@ -73,4 +73,6 @@
     <string name="notBuyed">Этот продукт не приобретён!</string>
     <string name="ads">Реклама</string>
     <string name="error">Ошибка</string>
+    <string name="noQuestions">Нет сохранённых вопросов!</string>
+    <string name="mainActivity_dialogMessage">Вы хотите загрузить стандартный набор вопросов?</string>
 </resources>
