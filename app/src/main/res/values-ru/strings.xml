@@ -47,10 +47,10 @@
         <item>Никогда</item>
     </string-array>
     <string name="downloadActivity_title">Пожалуйста, подождите</string>
-    <string name="downloadActivity_downloading">Загрузка...</string>
+    <string name="downloadActivity_downloading">Загрузка…</string>
     <string name="settings_syncNow">Синхронизировать сейчас</string>
     <string name="settings_sync_server">Сервер</string>
-    <string name="pleaseWait">Пожалуйста, подождите...</string>
+    <string name="pleaseWait">Пожалуйста, подождите…</string>
     <string name="removeAllDialogTitle">Удалить все вопросы?</string>
     <string name="removeAllDialogContent">Это действие необратимо!</string>
     <string name="settings_removeAll">Удалить все вопросы</string>
@@ -75,4 +75,7 @@
     <string name="error">Ошибка</string>
     <string name="noQuestions">Нет сохранённых вопросов!</string>
     <string name="mainActivity_dialogMessage">Вы хотите загрузить стандартный набор вопросов?</string>
+    <string-array name="noQuestions">
+        <item>Нет вопросов</item>
+    </string-array>
 </resources>

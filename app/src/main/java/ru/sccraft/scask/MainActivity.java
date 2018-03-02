@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         });
         fe = new Fe(this);
         lw = findViewById(R.id.listView_main);
+        if (savedInstanceState != null) {
+            показывать_диалог = savedInstanceState.getBoolean("showDialog");
+        }
     }
 
     @Override
@@ -69,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         if (!имеются_файлы_JSON) {
             //Нет вопросов
             if (показывать_диалог) предложить_скачать_вопросы();
+            String[] текст_ошибки = getResources().getStringArray(R.array.noQuestions);
+            setTitle(текст_ошибки[0]);
+            ArrayAdapter<String> адаптер = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, текст_ошибки);
+            lw.setAdapter(адаптер);
         } else {
             String[] s = new String[q.length];
             for (int i = 0; i < q.length; i++) {
@@ -93,14 +101,14 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             });
-        }
-        int решено = 0;
-        for (Question вопрос : q) {
-            if (вопрос.проверить_ответ()) {
-                решено++;
+            int решено = 0;
+            for (Question вопрос : q) {
+                if (вопрос.проверить_ответ()) {
+                    решено++;
+                }
             }
+            setTitle(getString(R.string.mainActivity_decided) + " " + решено + " " + getString(R.string.mainActivity_decided_of) + " " + q.length);
         }
-        setTitle(getString(R.string.mainActivity_decided) + " " + решено + " " + getString(R.string.mainActivity_decided_of) + " " + q.length);
     }
 
     private void предложить_скачать_вопросы() {
@@ -203,6 +211,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
+        outState.putBoolean("showDialog", показывать_диалог);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putBoolean("showDialog", показывать_диалог);
     }
 }

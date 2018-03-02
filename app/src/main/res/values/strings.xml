@@ -18,7 +18,7 @@
         For more information, see https://support.google.com/admob/answer/3052638
     <!- -->
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="action_export_all">Export all fiels</string>
+    <string name="action_export_all">Export all files</string>
     <string name="settings_questions">Questions</string>
     <string name="settings_resetAnswers">Reset responses</string>
     <string name="done">Done</string>
@@ -26,9 +26,6 @@
     <string name="mainActivity_decided_of">of</string>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
@@ -98,11 +95,11 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="downloadActivity_title">Please, wait</string>
-    <string name="downloadActivity_downloading">Downloading...</string>
+    <string name="downloadActivity_downloading">Downloading…</string>
     <string name="settings_syncNow">Sync now</string>
     <string name="sync_server">http://sccraft.ru/android-app/scask/questions_en</string>
     <string name="settings_sync_server">Server</string>
-    <string name="pleaseWait">Please, wait...</string>
+    <string name="pleaseWait">Please, wait…</string>
     <string name="removeAllDialogTitle">Remove all Questions?</string>
     <string name="removeAllDialogContent">This action is irreversible!</string>
     <string name="settings_removeAll">Remove all questions</string>
@@ -126,4 +123,7 @@
     <string name="error">Error</string>
     <string name="noQuestions">No saved questions!</string>
     <string name="mainActivity_dialogMessage">Do you want to download a standard set of questions?</string>
+    <string-array name="noQuestions">
+        <item>No questions</item>
+    </string-array>
 </resources>
