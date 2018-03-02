@@ -77,6 +77,17 @@ public class MainActivity extends AppCompatActivity {
             setTitle(текст_ошибки[0]);
             ArrayAdapter<String> адаптер = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, текст_ошибки);
             lw.setAdapter(адаптер);
+            lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                }
+            });
+            lw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    return false;
+                }
+            });
         } else {
             String[] s = new String[q.length];
             for (int i = 0; i < q.length; i++) {
