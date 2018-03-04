@@ -214,6 +214,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_done:
                 завершить();
+                return true;
+            case R.id.action_about:
+                Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent1);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

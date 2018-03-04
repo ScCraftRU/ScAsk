@@ -78,4 +78,9 @@
     <string-array name="noQuestions">
         <item>Нет вопросов</item>
     </string-array>
+    <string name="version">"Версия: "</string>
+    <string name="versionCode">Сборка №</string>
+    <string name="rateApp">Оценить приложение</string>
+    <string name="goToGooglePlayQestion">Перейти в Google Play?</string>
+    <string name="about">О программе</string>
 </resources>
