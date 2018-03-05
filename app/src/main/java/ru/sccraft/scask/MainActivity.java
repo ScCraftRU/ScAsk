@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     String[] file;
     private Fe fe;
     private boolean показывать_диалог = true;
+    private MenuItem экспорт, завершить;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +121,18 @@ public class MainActivity extends AppCompatActivity {
             }
             setTitle(getString(R.string.mainActivity_decided) + " " + решено + " " + getString(R.string.mainActivity_decided_of) + " " + q.length);
         }
+        обновить_меню();
+    }
+
+    private void обновить_меню() {
+        if (экспорт == null) return;
+        if (q.length == 0) {
+            экспорт.setVisible(false);
+            завершить.setVisible(false);
+        } else {
+            экспорт.setVisible(true);
+            завершить.setVisible(true);
+        }
     }
 
     private void предложить_скачать_вопросы() {
@@ -193,6 +206,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        экспорт = menu.findItem(R.id.action_export);
+        завершить = menu.findItem(R.id.action_done);
+        обновить_меню();
         return true;
     }
 
