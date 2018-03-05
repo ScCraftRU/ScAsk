@@ -83,4 +83,7 @@
     <string name="rateApp">Оценить приложение</string>
     <string name="goToGooglePlayQestion">Перейти в Google Play?</string>
     <string name="about">О программе</string>
+    <string name="license">"Лицензия: "</string>
+    <string name="viewLicense">Просмотреть лицензию</string>
+    <string name="sourceCode">Исходный код</string>
 </resources>

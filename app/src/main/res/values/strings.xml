@@ -131,4 +131,7 @@
     <string name="rateApp">Rate this APP</string>
     <string name="goToGooglePlayQestion">Go to GooglePlay store?</string>
     <string name="about">About</string>
+    <string name="license">"License: "</string>
+    <string name="viewLicense">View license</string>
+    <string name="sourceCode">View source code</string>
 </resources>
