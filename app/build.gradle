@@ -6,8 +6,8 @@ android {
         applicationId "ru.sccraft.scask"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 11
-        versionName "0.2"
+        versionCode 12
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }

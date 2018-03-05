@@ -99,8 +99,8 @@ public class DoneActivity extends AppCompatActivity {
                 String tittle = "User statistics\n";
                 String разделитель = "=================================================================\n";
                 String data = tittle + разделитель;
-                float процент_решения = (верно / вопросы.length) * 100;
-                data += "DONE: " + процент_решения + "%" + "\n" + разделитель;
+                //double процент_решения = (верно / вопросы.length) * 100;
+                //data += "DONE: " + процент_решения + "%" + "\n" + разделитель;
                 String решено = "";
                 for (Question вопрос : вопросы) {
                     if (вопрос.проверить_ответ()) {
@@ -108,9 +108,11 @@ public class DoneActivity extends AppCompatActivity {
                     } else {
                         решено = getString(R.string.no);
                     }
-                    data += вопрос.вопрос + "\n" + getString(R.string.addQuestion_answer) + вопрос.получить_ответ() + "\n" + getString(R.string.done_right) + решено + "\n" + разделитель;
+                    data += вопрос.вопрос + "\n" + getString(R.string.addQuestion_answer) + " " + вопрос.получить_ответ() + "\n" + getString(R.string.done_right) + решено + "\n" + разделитель;
                 }
                 data = data + "END OF USER DATA";
+                data = data.replace("true", getString(R.string.yes));
+                data = data.replace("false", getString(R.string.no));
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
