@@ -47,7 +47,7 @@ public class DownloadActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... voids) {
             настройки = PreferenceManager.getDefaultSharedPreferences(a);
-            String server = настройки.getString("settings_sync_server", "http://sccraft.ru/android-app/scask/questions");
+            String server = настройки.getString("settings_sync_server", a.getString(R.string.sync_server));
             String[] JSON = NetGet.getMultiLine(server + ".scask");
             if (JSON.length == 0) return false;
             try {
