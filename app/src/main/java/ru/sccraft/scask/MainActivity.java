@@ -157,22 +157,23 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void экспортировать_файлы() {
+    private void экспортировать_вопросы() {
         @SuppressLint("StaticFieldLeak")
         class Поток extends AsyncTask<Void, Void, Intent> {
 
             @Override
             protected Intent doInBackground(Void... params) {
-                Log.i(LOG_TAG, "запущен экспорт файлов");
+                Log.i(LOG_TAG, "запущен экспорт вопросов");
                 Fe fe = new Fe(MainActivity.this);
                 String tittle = "This data ONLY for ScAsk server!\nMore information on http://sccraft.ru/index.php/guide/12-scask/6-howtocreateserver\n";
                 String разделитель = "=================================================================\n";
                 StringBuilder data = new StringBuilder(tittle + разделитель);
                 for (String aFile : file) {
-                    if (!(aFile.equals("instant-run"))) {
-                        data.append(aFile).append("\n").append(fe.getFile(aFile)).append("\n").append(разделитель);
+                    if (aFile.contains(".json")) {
+                        data.append(fe.getFile(aFile)).append("\n");
                     }
                 }
+                data.append(разделитель);
                 data.append("END OF SERVER DATA");
 
                 Intent sendIntent = new Intent();
@@ -226,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_export:
-                экспортировать_файлы();
+                экспортировать_вопросы();
                 return true;
             case R.id.action_done:
                 завершить();
