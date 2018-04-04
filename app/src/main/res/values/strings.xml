@@ -134,4 +134,5 @@
     <string name="license">"License: "</string>
     <string name="viewLicense">View license</string>
     <string name="sourceCode">View source code</string>
+    <string name="action_help">Help</string>
 </resources>

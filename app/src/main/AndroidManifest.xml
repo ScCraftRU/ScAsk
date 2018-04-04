@@ -19,7 +19,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -54,7 +53,6 @@
         <activity android:name=".DownloadActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.download" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -68,7 +66,6 @@
         <activity android:name=".RemoveAllActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.removeall" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -78,7 +75,6 @@
         <activity android:name=".DisableADsActivity">
             <intent-filter>
                 <action android:name="ru.sccraft.scask.disableads" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -86,7 +82,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ru.sccraft.scask.SettingsActivity" />
         </activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".HelpActivity"
+            android:label="@string/action_help"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

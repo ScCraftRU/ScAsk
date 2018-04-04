@@ -231,6 +231,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_done:
                 завершить();
                 return true;
+            case R.id.action_help:
+                Intent intent2 = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(intent2);
+                return true;
             case R.id.action_about:
                 Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent1);

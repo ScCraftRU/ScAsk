@@ -86,4 +86,5 @@
     <string name="license">"Лицензия: "</string>
     <string name="viewLicense">Просмотреть лицензию</string>
     <string name="sourceCode">Исходный код</string>
+    <string name="action_help">Справка</string>
 </resources>
