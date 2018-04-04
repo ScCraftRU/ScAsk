@@ -90,10 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            String[] s = new String[q.length];
-            for (int i = 0; i < q.length; i++) {
-                s[i] = q[i].вопрос;
-            }
             QuestionAdapter adapter = new QuestionAdapter(this, q);
             lw.setAdapter(adapter);
             lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
