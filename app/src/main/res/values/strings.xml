@@ -135,4 +135,5 @@
     <string name="viewLicense">View license</string>
     <string name="sourceCode">View source code</string>
     <string name="action_help">Help</string>
+    <string name="help_defaultServer">What is the default server?</string>
 </resources>

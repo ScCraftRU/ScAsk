@@ -87,4 +87,5 @@
     <string name="viewLicense">Просмотреть лицензию</string>
     <string name="sourceCode">Исходный код</string>
     <string name="action_help">Справка</string>
+    <string name="help_defaultServer">Какой сервер по умолчанию?</string>
 </resources>
