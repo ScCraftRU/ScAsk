@@ -136,4 +136,6 @@
     <string name="sourceCode">View source code</string>
     <string name="action_help">Help</string>
     <string name="help_defaultServer">What is the default server?</string>
+    <string name="help_removeQuestion">How to remove question?</string>
+    <string name="help_removeQuestion_answer">To delete one question - make a long press on it in the list of questions.</string>
 </resources>

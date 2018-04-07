@@ -32,6 +32,19 @@
                 android:selectAllOnFocus="true"
                 android:text="@string/sync_server"
                 android:textIsSelectable="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_removeQuestion"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_removeQuestion_answer" />
         </LinearLayout>
     </ScrollView>
 

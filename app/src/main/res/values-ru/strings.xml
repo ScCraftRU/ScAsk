@@ -88,4 +88,6 @@
     <string name="sourceCode">Исходный код</string>
     <string name="action_help">Справка</string>
     <string name="help_defaultServer">Какой сервер по умолчанию?</string>
+    <string name="help_removeQuestion">Как удалить вопрос?</string>
+    <string name="help_removeQuestion_answer"><![CDATA[Чтобы удалить один вопрос - сделайте долгое нажатие на него в списке вопросов.\nЧтобы удалить все вопросы нажмите меню —> Настройки —> основные —> удалить все вопросы]]></string>
 </resources>
