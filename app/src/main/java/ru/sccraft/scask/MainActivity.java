@@ -95,9 +95,11 @@ public class MainActivity extends AppCompatActivity {
             lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-                    intent.putExtra("question", q[i].toJSON());
-                    startActivity(intent);
+                    if (!q[i].решено()) {
+                        Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                        intent.putExtra("question", q[i].toJSON());
+                        startActivity(intent);
+                    }
                 }
             });
             lw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
