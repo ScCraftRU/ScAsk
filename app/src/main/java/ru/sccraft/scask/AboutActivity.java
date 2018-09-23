@@ -101,4 +101,10 @@ public class AboutActivity extends AppCompatActivity {
         Intent открыть_исходный_код_в_браузере = new Intent(Intent.ACTION_VIEW, ссылка_на_исходный_код);
         startActivity(открыть_исходный_код_в_браузере);
     }
+
+    public void privacyPolicy(View view) {
+        Uri ссылка_на_политику_конфиденциальности = Uri.parse("http://sccraft.ru/android-app/scask/privacy/");
+        Intent открыть_политику_конфиденциальности_в_браузере = new Intent(Intent.ACTION_VIEW, ссылка_на_политику_конфиденциальности);
+        startActivity(открыть_политику_конфиденциальности_в_браузере);
+    }
 }

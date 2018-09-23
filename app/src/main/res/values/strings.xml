@@ -138,4 +138,7 @@
     <string name="help_defaultServer">What is the default server?</string>
     <string name="help_removeQuestion">How to remove question?</string>
     <string name="help_removeQuestion_answer">To delete one question - make a long press on it in the list of questions.</string>
+    <string name="intendificatorReqest">Please provide access to your advertising ID</string>
+    <string name="intendificatorMessage">This app is free, but it contains ads.\nDue to the fact that AdMob by default uses an advertising intensifier, and Google Play requires the user\'s consent to use the advertising intensifier, you need either to allow access to the intensifier, or to refuse to use this application.\n\nPrivacy policy is available in the About window.</string>
+    <string name="privacy">Privacy policy</string>
 </resources>

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Fe fe;
     private boolean показывать_диалог = true;
     private MenuItem экспорт, завершить;
+    private boolean разрешить_использование_интендификатора = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,35 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             показывать_диалог = savedInstanceState.getBoolean("showDialog");
         }
+        String рекламаID = fe.getFile("adid");
+        if (рекламаID.contains("1")) {
+            разрешить_использование_интендификатора = true;
+        } else {
+            разрешить_использование_интендификатора = false;
+        }
+    }
+
+    private void запросить_интендификатор() {
+        android.support.v7.app.AlertDialog.Builder диалог = new android.support.v7.app.AlertDialog.Builder(this);
+        диалог.setTitle(R.string.intendificatorReqest)
+                .setMessage(R.string.intendificatorMessage)
+                .setCancelable(false)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        fe.saveFile("adid", "1");
+                        разрешить_использование_интендификатора = true;
+                    }
+                })
+                .setNegativeButton(R.string.about, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+        диалог.show();
     }
 
     @Override
@@ -95,10 +125,14 @@ public class MainActivity extends AppCompatActivity {
             lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    if (!q[i].решено()) {
-                        Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-                        intent.putExtra("question", q[i].toJSON());
-                        startActivity(intent);
+                    if(разрешить_использование_интендификатора) {
+                        if (!q[i].решено()) {
+                            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                            intent.putExtra("question", q[i].toJSON());
+                            startActivity(intent);
+                        }
+                    } else {
+                        запросить_интендификатор();
                     }
                 }
             });
