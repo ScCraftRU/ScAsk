@@ -3,8 +3,8 @@ package ru.sccraft.scask;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.PersistableBundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
