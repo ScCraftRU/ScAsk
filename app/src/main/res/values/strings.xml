@@ -113,7 +113,7 @@
     <string name="action_export">Export question</string>
     <string name="action_share">Share</string>
     <string name="buy">Buy</string>
-    <string name="restorePurchases">Restore purchases</string>
+    <string name="getItFree">Get it free!</string>
     <string name="close">Close</string>
     <string name="adsDisabled">ADs is disabled!</string>
     <string name="unavableInThisMoment">This action is not avaible now!\\nPress \"Bask\" and try again/</string>

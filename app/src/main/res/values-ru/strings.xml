@@ -65,7 +65,7 @@
     <string name="action_share">Поделиться</string>
     <string name="sync_server">http://sccraft.ru/android-app/scask/questions</string>
     <string name="buy">Купить</string>
-    <string name="restorePurchases">Восстановить покупки</string>
+    <string name="getItFree">Получить бесплатно!</string>
     <string name="close">Закрыть</string>
     <string name="adsDisabled">Реклама отключена!</string>
     <string name="unavableInThisMoment">Это действие не доступно в данный момент!\\nНажмите \"Назад\" и попробуйте ещё раз.</string>
