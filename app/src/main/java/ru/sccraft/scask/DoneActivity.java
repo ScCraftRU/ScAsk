@@ -1,6 +1,7 @@
 package ru.sccraft.scask;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -150,5 +151,12 @@ public class DoneActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        MainActivity.currentNightMode = newConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
     }
 }

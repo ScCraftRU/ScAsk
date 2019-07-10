@@ -2,6 +2,7 @@ package ru.sccraft.scask;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,7 +68,16 @@ public class QuestionAdapter extends BaseAdapter {
                 вывод_вопроса.setTextColor(вью.getResources().getColor(R.color.colorAccent));
             }
         } else {
-            вывод_вопроса.setTextColor(вью.getResources().getColor(android.R.color.black));
+            switch (MainActivity.currentNightMode) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    // Night mode is not active, we're using the light theme
+                    вывод_вопроса.setTextColor(вью.getResources().getColor(android.R.color.black));
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    // Night mode is active, we're using dark theme
+                    вывод_вопроса.setTextColor(вью.getResources().getColor(android.R.color.white));
+                    break;
+            }
         }
         return вью;
     }
