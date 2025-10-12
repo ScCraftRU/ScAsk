@@ -254,25 +254,24 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        switch (id) {
-            case R.id.action_settings:
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.action_export:
-                экспортировать_вопросы();
-                return true;
-            case R.id.action_done:
-                завершить();
-                return true;
-            case R.id.action_help:
-                Intent intent2 = new Intent(MainActivity.this, HelpActivity.class);
-                startActivity(intent2);
-                return true;
-            case R.id.action_about:
-                Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent1);
-                return true;
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_export) {
+            экспортировать_вопросы();
+            return true;
+        } else if (id == R.id.action_done) {
+            завершить();
+            return true;
+        } else if (id == R.id.action_help) {
+            Intent intent2 = new Intent(MainActivity.this, HelpActivity.class);
+            startActivity(intent2);
+            return true;
+        } else if (id == R.id.action_about) {
+            Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent1);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -10,10 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 import static android.text.InputType.TYPE_CLASS_TEXT;
 
@@ -57,16 +53,6 @@ public class QuestionActivity extends AppCompatActivity {
                 ответ.setInputType(TYPE_CLASS_TEXT);
                 break;
         }
-
-        // Load an ad into the AdMob banner view.
-        AdView adView = findViewById(R.id.adView);
-        if (!fe.getFile("scask-ads").contains("1")) {
-            adView.setVisibility(View.VISIBLE);
-            AdRequest adRequest = new AdRequest.Builder().setRequestAgent("android_studio:ad_template").build();
-            adView.loadAd(adRequest);
-        } else {
-            adView.setVisibility(View.GONE);
-        }
     }
 
 
@@ -84,10 +70,9 @@ public class QuestionActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        switch (id) {
-            case R.id.action_export:
-                экспортировать();
-                return true;
+        if (id == R.id.action_export) {
+            экспортировать();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
