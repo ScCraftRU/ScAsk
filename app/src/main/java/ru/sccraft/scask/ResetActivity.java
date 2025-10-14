@@ -2,6 +2,8 @@ package ru.sccraft.scask;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ public class ResetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_reset);
         fe = new Fe(this);
         поток = (Поток) getLastCustomNonConfigurationInstance();
