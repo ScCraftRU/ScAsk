@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +34,7 @@ public class DoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         file = fileList();
         fe = new Fe(this);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_done);
         базовая_статистика = findViewById(R.id.done_baseStat);
         подробная_статистика = findViewById(R.id.done_lw);
