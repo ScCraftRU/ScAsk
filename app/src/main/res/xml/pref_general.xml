@@ -1,6 +1,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/settings_questions">
 
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="settings_edit_mode"
+            android:title="@string/settings_edit_mode" />
         <Preference android:title="@string/settings_resetAnswers">
             <intent android:action="ru.sccraft.scask.reset"/>
         </Preference>

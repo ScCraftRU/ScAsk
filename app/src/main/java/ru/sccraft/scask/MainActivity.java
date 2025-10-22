@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.os.PersistableBundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean показывать_диалог = true;
     private MenuItem экспорт, завершить;
     private boolean разрешить_использование_интендификатора = false;
+    private SharedPreferences настройки;
+    private boolean режим_редактирования;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +92,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         file = fileList();
+        настройки = PreferenceManager.getDefaultSharedPreferences(this);
+        режим_редактирования = настройки.getBoolean("settings_edit_mode", false);
+        if (режим_редактирования) {
+            findViewById(R.id.fab).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.fab).setVisibility(View.GONE);
+        }
         обновить_список_вопросов();
     }
 
@@ -140,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             lw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    if (!режим_редактирования) return false;
                     deleteFile(q[position].вопрос + ".json");
                     file = fileList();
                     обновить_список_вопросов();
